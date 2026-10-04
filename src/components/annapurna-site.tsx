@@ -1,5 +1,7 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { Link } from "@tanstack/react-router";
+import { servicePages } from "@/lib/service-pages";
 import {
   Armchair, CalendarDays, Check, ChefHat, ChevronRight, CookingPot, Flame,
   HandPlatter, Heart, Mail, MapPin, Menu, MessageCircle, Phone, Sparkles,
@@ -29,7 +31,7 @@ const ADDRESS = "Anakapalle, beside Shivalayam, Laxminarayana Nagar, Golla Vedi,
 const copy = {
   en: {
     nav: ["Home", "About", "Catering", "Tent & Equipment", "Events", "Gallery", "Contact"],
-    quote: "Get a Quote", heroTitle: "Traditional Taste. Complete Event Support.",
+    quote: "Get a Quote", heroH1: "Catering Services & Tent House in Anakapalle", heroTitle: "Traditional Taste. Complete Event Support.",
     heroSub: "Authentic Andhra & South Indian Catering, Tents and Event Equipment for Weddings, Functions & Every Special Occasion.",
     freeQuote: "Get a Free Quote", whatsapp: "WhatsApp Us", serving: "Serving Anakapalle & Nearby Areas",
     trust: "Food • Tents • Tables & Chairs • Cooking Equipment • Serving Equipment",
@@ -47,7 +49,7 @@ const copy = {
   },
   te: {
     nav: ["హోమ్", "మా గురించి", "కేటరింగ్", "టెంట్ & సామగ్రి", "వేడుకలు", "గ్యాలరీ", "సంప్రదించండి"],
-    quote: "ధర వివరాలు పొందండి", heroTitle: "సాంప్రదాయ రుచి. సంపూర్ణ వేడుక సహాయం.",
+    quote: "ధర వివరాలు పొందండి", heroH1: "అనకాపల్లిలో కేటరింగ్ సేవలు & టెంట్ హౌస్", heroTitle: "సాంప్రదాయ రుచి. సంపూర్ణ వేడుక సహాయం.",
     heroSub: "వివాహాలు, శుభకార్యాలు మరియు ప్రతి ప్రత్యేక సందర్భానికి ఆంధ్ర & దక్షిణ భారత వంటకాలు, టెంట్లు, వేడుక సామగ్రి.",
     freeQuote: "ఉచిత కోట్ పొందండి", whatsapp: "వాట్సాప్ చేయండి", serving: "అనకాపల్లి మరియు సమీప ప్రాంతాలకు సేవలు",
     trust: "ఆహారం • టెంట్లు • టేబుళ్లు & కుర్చీలు • వంట సామగ్రి • వడ్డింపు సామగ్రి",
@@ -122,7 +124,7 @@ export function AnnapurnaSite() {
 
     <main>
       <section id="home" className="hero" style={{backgroundImage:`url(${heroImage})`}}>
-        <div className="hero-overlay"/><div className="hero-content"><p className="eyebrow light"><MapPin size={16}/>{t.serving}</p><h1>{t.heroTitle}</h1><p className="hero-copy">{t.heroSub}</p><div className="hero-actions"><CTA href="#enquiry">{t.freeQuote}</CTA><CTA href={WHATSAPP} secondary><MessageCircle size={18}/>{t.whatsapp}</CTA></div><p className="trust-line">{t.trust}</p></div>
+        <div className="hero-overlay"/><div className="hero-content"><p className="eyebrow light"><MapPin size={16}/>{t.serving}</p><h1>{t.heroH1}</h1><p className="hero-copy"><strong>{t.heroTitle}</strong> {t.heroSub}</p><div className="hero-actions"><CTA href="#enquiry">{t.freeQuote}</CTA><CTA href={WHATSAPP} secondary><MessageCircle size={18}/>{t.whatsapp}</CTA></div><p className="trust-line">{t.trust}</p></div>
       </section>
 
       <section className="service-strip" aria-label="Our main services"><div className="section-inner service-grid">{serviceCards.map(([Icon,en,te,descEn,descTe]) => <article className="service-card" key={String(en)}><div className="icon-box"><Icon size={25}/></div><div><h3>{isTe?te:en}</h3><p>{isTe?descTe:descEn}</p></div></article>)}</div></section>
@@ -133,9 +135,11 @@ export function AnnapurnaSite() {
 
       <section id="equipment" className="section equipment-section"><div className="section-inner"><div className="section-heading"><p className="eyebrow">Tent House</p><h2>{t.equipmentTitle}</h2><p>{t.equipmentSub}</p></div><div className="equipment-layout"><img src={tentImage} loading="lazy" width="1408" height="1104" alt="Elegant wedding shamiana with tables and chairs"/><div className="equipment-grid">{equipment.map(([Icon,en,te,desc])=><article key={String(en)}><Icon size={24}/><h3>{isTe?te:en}</h3><p>{isTe?"మీ వేడుక అవసరాలకు అనుగుణమైన సౌకర్యవంతమైన ఏర్పాటు.":desc}</p></article>)}</div></div><div className="center-cta"><CTA href="#enquiry">{t.tell}</CTA></div></div></section>
 
-      <section id="events" className="section events-section"><div className="section-inner"><div className="section-heading centered"><p className="eyebrow">Occasions</p><h2>{t.eventsTitle}</h2><p>{t.eventsSub}</p></div><div className="event-grid">{eventCards.map(([en,te,img])=><article key={String(en)}><img src={String(img)} loading="lazy" width="602" height="602" alt={`${en} event in India`}/><div><h3>{isTe?te:en}</h3><a href="#enquiry" aria-label={`Enquire for ${en}`}><ChevronRight/></a></div></article>)}</div><div className="center-cta"><CTA href="#enquiry">{t.tell}</CTA></div></div></section>
+      <section id="events" className="section events-section"><div className="section-inner"><div className="section-heading centered"><p className="eyebrow">Occasions</p><h2>{t.eventsTitle}</h2><p>{t.eventsSub}</p></div><div className="event-grid">{eventCards.map(([en,te,img])=><article key={String(en)}><img src={String(img)} loading="lazy" width="602" height="602" alt={`Sample photo of a ${String(en).toLowerCase()} setup`}/><div><h3>{isTe?te:en}</h3><a href="#enquiry" aria-label={`Enquire for ${en}`}><ChevronRight/></a></div></article>)}</div><div className="center-cta"><CTA href="#enquiry">{t.tell}</CTA></div></div></section>
 
       <section className="section why-section"><div className="section-inner why-layout"><div><p className="eyebrow">Why Annapurna</p><h2>{t.whyTitle}</h2><p>{t.whyText}</p></div><div className="benefit-list">{(isTe?benefitsTe:benefits).map(x=><div key={x}><Check size={18}/><span>{x}</span></div>)}</div></div></section>
+
+      <section id="services" className="section services-links-section"><div className="section-inner"><div className="section-heading centered"><p className="eyebrow">{isTe?"మా సేవలు":"Our Services in Anakapalle"}</p><h2>{isTe?"అనకాపల్లిలో కేటరింగ్ & టెంట్ హౌస్ సేవలు":"Catering & Tent House Services in Anakapalle"}</h2><p>{isTe?"ప్రతి సేవ గురించి పూర్తి వివరాలు చదవండి లేదా నేరుగా మమ్మల్ని సంప్రదించండి.":"Read more about each service, what is included, and how to book with Annapurna Tent House and Caterings."}</p></div><div className="service-link-grid">{servicePages.map(p=><Link key={p.path} to={p.path} className="service-link-card"><h3>{p.cardTitle}</h3><p>{p.cardText}</p><span>{isTe?"వివరాలు చూడండి":"Learn more"} <ChevronRight size={16}/></span></Link>)}</div><p className="service-area-note"><MapPin size={16}/>{isTe?"సేవా ప్రాంతం: అనకాపల్లి మరియు సమీప ప్రాంతాలు. మీ ప్రాంతానికి సేవ అందుబాటులో ఉందో లేదో కాల్ చేసి నిర్ధారించుకోండి.":"Service area: Anakapalle and nearby areas. Call to confirm availability for your venue."} <Link to="/contact">{isTe?"సంప్రదించండి":"Contact Annapurna Tent House and Caterings"}</Link></p></div></section>
 
       <section id="gallery" className="section gallery-section"><div className="section-inner"><div className="section-heading"><p className="eyebrow">Gallery</p><h2>{t.galleryTitle}</h2><p className="gallery-label">{t.galleryLabel}</p></div><div className="gallery-grid">{gallery.map(([img,alt],i)=><figure key={String(alt)} className={`gallery-${i+1}`}><img src={String(img)} loading="lazy" width="602" height="602" alt={String(alt)}/></figure>)}</div><div className="center-cta"><CTA href="#enquiry">{t.freeQuote}</CTA></div></div></section>
 
@@ -144,7 +148,7 @@ export function AnnapurnaSite() {
       <section id="contact" className="section contact-section"><div className="section-inner contact-grid"><div><p className="eyebrow light">Contact Annapurna</p><h2>{t.contactTitle}</h2><h3>Annapurna Tent House and Caterings</h3><a href={`tel:+91${PHONE}`}><Phone size={19}/>{PHONE}</a><a href="mailto:yedla16manoj@gmail.com"><Mail size={19}/>yedla16manoj@gmail.com</a><p className="address"><MapPin size={20}/>{ADDRESS}</p><div className="contact-actions"><CTA href={`tel:+91${PHONE}`}>{t.call}</CTA><CTA href={WHATSAPP} secondary>{t.whatsapp}</CTA></div></div><div className="map-placeholder"><MapPin size={34}/><h3>{isTe?"అనకాపల్లి, ఆంధ్రప్రదేశ్":"Anakapalle, Andhra Pradesh"}</h3><p>{isTe?"ధృవీకరించిన మ్యాప్ లొకేషన్ అందుబాటులోకి వచ్చిన తర్వాత ఇక్కడ మ్యాప్ జోడించవచ్చు.":"Map can be added here once the exact verified business location is available."}</p></div></div></section>
     </main>
 
-    <footer><div className="section-inner footer-grid"><div><Brand/><p>{t.footerLine}</p></div><div><h3>{isTe?"త్వరిత లింకులు":"Quick Links"}</h3>{t.nav.map((x,i)=><a key={x} href={`#${anchors[i]}`}>{x}</a>)}</div><div><h3>{isTe?"సేవలు":"Services"}</h3>{(isTe?["కేటరింగ్","టెంట్ హౌస్","టేబుళ్లు & కుర్చీలు","వంట సామగ్రి","వడ్డింపు సామగ్రి"]:["Catering","Tent House","Tables & Chairs","Cooking Equipment","Serving Equipment"]).map(x=><span key={x}>{x}</span>)}</div><div><h3>{isTe?"సంప్రదించండి":"Contact"}</h3><a href={`tel:+91${PHONE}`}>{PHONE}</a><a href="mailto:yedla16manoj@gmail.com">yedla16manoj@gmail.com</a><span>Anakapalle, Andhra Pradesh</span></div></div><div className="footer-bottom">© 2026 Annapurna Tent House and Caterings. All rights reserved.</div></footer>
+    <footer><div className="section-inner footer-grid"><div><Brand/><p>{t.footerLine}</p></div><div><h3>{isTe?"త్వరిత లింకులు":"Quick Links"}</h3>{t.nav.map((x,i)=><a key={x} href={`#${anchors[i]}`}>{x}</a>)}</div><div><h3>{isTe?"సేవలు":"Services"}</h3>{(isTe?["కేటరింగ్","టెంట్ హౌస్","టేబుళ్లు & కుర్చీలు","వంట సామగ్రి","వడ్డింపు సామగ్రి"]:["Catering","Tent House","Tables & Chairs","Cooking Equipment","Serving Equipment"]).map(x=><span key={x}>{x}</span>)}{servicePages.map(p=><Link key={p.path} to={p.path}>{p.cardTitle}</Link>)}<Link to="/contact">{isTe?"సంప్రదింపు పేజీ":"Contact page"}</Link></div><div><h3>{isTe?"సంప్రదించండి":"Contact"}</h3><a href={`tel:+91${PHONE}`}>{PHONE}</a><a href="mailto:yedla16manoj@gmail.com">yedla16manoj@gmail.com</a><span>Anakapalle, Andhra Pradesh</span></div></div><div className="footer-bottom">© 2026 Annapurna Tent House and Caterings. All rights reserved.</div></footer>
     <a className="floating-whatsapp" href={WHATSAPP} aria-label="WhatsApp Annapurna"><MessageCircle/></a>
     <div className="mobile-action-bar"><a href={`tel:+91${PHONE}`}><Phone/><span>{t.call}</span></a><a href={WHATSAPP}><MessageCircle/><span>WhatsApp</span></a><a href="#enquiry"><CalendarDays/><span>{t.quote}</span></a></div>
   </div>;
