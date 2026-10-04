@@ -10,33 +10,133 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BirthdayCateringAnakapalleRouteImport } from './routes/birthday-catering-anakapalle'
+import { Route as CateringServicesAnakapalleRouteImport } from './routes/catering-services-anakapalle'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FunctionCateringAnakapalleRouteImport } from './routes/function-catering-anakapalle'
+import { Route as HousewarmingCateringAnakapalleRouteImport } from './routes/housewarming-catering-anakapalle'
+import { Route as TentHouseAnakapalleRouteImport } from './routes/tent-house-anakapalle'
+import { Route as WeddingCateringAnakapalleRouteImport } from './routes/wedding-catering-anakapalle'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BirthdayCateringAnakapalleRoute =
+  BirthdayCateringAnakapalleRouteImport.update({
+    id: '/birthday-catering-anakapalle',
+    path: '/birthday-catering-anakapalle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CateringServicesAnakapalleRoute =
+  CateringServicesAnakapalleRouteImport.update({
+    id: '/catering-services-anakapalle',
+    path: '/catering-services-anakapalle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FunctionCateringAnakapalleRoute =
+  FunctionCateringAnakapalleRouteImport.update({
+    id: '/function-catering-anakapalle',
+    path: '/function-catering-anakapalle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HousewarmingCateringAnakapalleRoute =
+  HousewarmingCateringAnakapalleRouteImport.update({
+    id: '/housewarming-catering-anakapalle',
+    path: '/housewarming-catering-anakapalle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TentHouseAnakapalleRoute = TentHouseAnakapalleRouteImport.update({
+  id: '/tent-house-anakapalle',
+  path: '/tent-house-anakapalle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeddingCateringAnakapalleRoute =
+  WeddingCateringAnakapalleRouteImport.update({
+    id: '/wedding-catering-anakapalle',
+    path: '/wedding-catering-anakapalle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/birthday-catering-anakapalle': typeof BirthdayCateringAnakapalleRoute
+  '/catering-services-anakapalle': typeof CateringServicesAnakapalleRoute
+  '/contact': typeof ContactRoute
+  '/function-catering-anakapalle': typeof FunctionCateringAnakapalleRoute
+  '/housewarming-catering-anakapalle': typeof HousewarmingCateringAnakapalleRoute
+  '/tent-house-anakapalle': typeof TentHouseAnakapalleRoute
+  '/wedding-catering-anakapalle': typeof WeddingCateringAnakapalleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/birthday-catering-anakapalle': typeof BirthdayCateringAnakapalleRoute
+  '/catering-services-anakapalle': typeof CateringServicesAnakapalleRoute
+  '/contact': typeof ContactRoute
+  '/function-catering-anakapalle': typeof FunctionCateringAnakapalleRoute
+  '/housewarming-catering-anakapalle': typeof HousewarmingCateringAnakapalleRoute
+  '/tent-house-anakapalle': typeof TentHouseAnakapalleRoute
+  '/wedding-catering-anakapalle': typeof WeddingCateringAnakapalleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/birthday-catering-anakapalle': typeof BirthdayCateringAnakapalleRoute
+  '/catering-services-anakapalle': typeof CateringServicesAnakapalleRoute
+  '/contact': typeof ContactRoute
+  '/function-catering-anakapalle': typeof FunctionCateringAnakapalleRoute
+  '/housewarming-catering-anakapalle': typeof HousewarmingCateringAnakapalleRoute
+  '/tent-house-anakapalle': typeof TentHouseAnakapalleRoute
+  '/wedding-catering-anakapalle': typeof WeddingCateringAnakapalleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/birthday-catering-anakapalle'
+    | '/catering-services-anakapalle'
+    | '/contact'
+    | '/function-catering-anakapalle'
+    | '/housewarming-catering-anakapalle'
+    | '/tent-house-anakapalle'
+    | '/wedding-catering-anakapalle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/birthday-catering-anakapalle'
+    | '/catering-services-anakapalle'
+    | '/contact'
+    | '/function-catering-anakapalle'
+    | '/housewarming-catering-anakapalle'
+    | '/tent-house-anakapalle'
+    | '/wedding-catering-anakapalle'
+  id:
+    | '__root__'
+    | '/'
+    | '/birthday-catering-anakapalle'
+    | '/catering-services-anakapalle'
+    | '/contact'
+    | '/function-catering-anakapalle'
+    | '/housewarming-catering-anakapalle'
+    | '/tent-house-anakapalle'
+    | '/wedding-catering-anakapalle'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BirthdayCateringAnakapalleRoute: typeof BirthdayCateringAnakapalleRoute
+  CateringServicesAnakapalleRoute: typeof CateringServicesAnakapalleRoute
+  ContactRoute: typeof ContactRoute
+  FunctionCateringAnakapalleRoute: typeof FunctionCateringAnakapalleRoute
+  HousewarmingCateringAnakapalleRoute: typeof HousewarmingCateringAnakapalleRoute
+  TentHouseAnakapalleRoute: typeof TentHouseAnakapalleRoute
+  WeddingCateringAnakapalleRoute: typeof WeddingCateringAnakapalleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +148,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/birthday-catering-anakapalle': {
+      id: '/birthday-catering-anakapalle'
+      path: '/birthday-catering-anakapalle'
+      fullPath: '/birthday-catering-anakapalle'
+      preLoaderRoute: typeof BirthdayCateringAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catering-services-anakapalle': {
+      id: '/catering-services-anakapalle'
+      path: '/catering-services-anakapalle'
+      fullPath: '/catering-services-anakapalle'
+      preLoaderRoute: typeof CateringServicesAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/function-catering-anakapalle': {
+      id: '/function-catering-anakapalle'
+      path: '/function-catering-anakapalle'
+      fullPath: '/function-catering-anakapalle'
+      preLoaderRoute: typeof FunctionCateringAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/housewarming-catering-anakapalle': {
+      id: '/housewarming-catering-anakapalle'
+      path: '/housewarming-catering-anakapalle'
+      fullPath: '/housewarming-catering-anakapalle'
+      preLoaderRoute: typeof HousewarmingCateringAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tent-house-anakapalle': {
+      id: '/tent-house-anakapalle'
+      path: '/tent-house-anakapalle'
+      fullPath: '/tent-house-anakapalle'
+      preLoaderRoute: typeof TentHouseAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wedding-catering-anakapalle': {
+      id: '/wedding-catering-anakapalle'
+      path: '/wedding-catering-anakapalle'
+      fullPath: '/wedding-catering-anakapalle'
+      preLoaderRoute: typeof WeddingCateringAnakapalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BirthdayCateringAnakapalleRoute: BirthdayCateringAnakapalleRoute,
+  CateringServicesAnakapalleRoute: CateringServicesAnakapalleRoute,
+  ContactRoute: ContactRoute,
+  FunctionCateringAnakapalleRoute: FunctionCateringAnakapalleRoute,
+  HousewarmingCateringAnakapalleRoute: HousewarmingCateringAnakapalleRoute,
+  TentHouseAnakapalleRoute: TentHouseAnakapalleRoute,
+  WeddingCateringAnakapalleRoute: WeddingCateringAnakapalleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

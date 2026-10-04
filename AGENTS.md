@@ -11,6 +11,6 @@
 
 ## Project architecture
 
-- Keep the public website as one anchored bilingual route because its primary journey is a fast mobile enquiry flow.
+- Keep the homepage as one anchored bilingual route (fast mobile enquiry flow); per-service SEO pages are separate English routes driven by shared data in the service-pages module so titles, schema and links stay consistent.
 - Submit public leads only through a validated server function using privileged database access; never expose stored enquiries to visitors.
 - Keep all English and Telugu marketing copy co-located in the website module so language switching remains complete and consistent.
