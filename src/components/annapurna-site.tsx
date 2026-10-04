@@ -5,6 +5,7 @@ import {
   HandPlatter, Heart, Mail, MapPin, Menu, MessageCircle, Phone, Sparkles,
   TableProperties, TentTree, Users, X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { submitEnquiry, type EnquiryInput } from "@/lib/enquiries.functions";
 import heroImage from "@/assets/annapurna-hero.webp";
 import feastImage from "@/assets/andhra-feast.webp";
@@ -65,7 +66,10 @@ const copy = {
 };
 
 const anchors = ["home", "about", "catering", "equipment", "events", "gallery", "contact"];
-const serviceCards = [
+type ServiceCard = [LucideIcon, string, string, string, string];
+type EquipmentItem = [LucideIcon, string, string, string];
+
+const serviceCards: ServiceCard[] = [
   [ChefHat, "Andhra & South Indian Catering", "ఆంధ్ర & దక్షిణ భారత కేటరింగ్", "Traditional food prepared for functions and celebrations.", "వేడుకలు, శుభకార్యాలకు సాంప్రదాయ వంటకాలు."],
   [TentTree, "Tent House Services", "టెంట్ హౌస్ సేవలు", "Tents and event setup requirements.", "టెంట్లు మరియు వేడుక ఏర్పాట్లు."],
   [TableProperties, "Complete Event Equipment", "పూర్తి వేడుక సామగ్రి", "Tables, chairs, vessels, gas stoves and serving equipment.", "టేబుళ్లు, కుర్చీలు, పాత్రలు, గ్యాస్ స్టౌలు, వడ్డింపు సామగ్రి."],
@@ -73,7 +77,7 @@ const serviceCards = [
 ];
 const cateringItems = ["Traditional Andhra Cuisine", "South Indian Favourites", "Vegetarian Options", "Non-Vegetarian Options", "Rice & Main Courses", "Curries & Side Dishes", "Snacks & Starters", "Sweets & Desserts"];
 const cateringTe = ["సాంప్రదాయ ఆంధ్ర వంటకాలు", "దక్షిణ భారత ప్రత్యేకాలు", "శాకాహార ఎంపికలు", "మాంసాహార ఎంపికలు", "అన్నం & ప్రధాన వంటకాలు", "కూరలు & పక్క వంటకాలు", "స్నాక్స్ & స్టార్టర్స్", "స్వీట్లు & డెజర్ట్స్"];
-const equipment = [
+const equipment: EquipmentItem[] = [
   [TentTree, "Tents & Shamiana", "టెంట్లు & షామియానా", "Comfortable event spaces for functions and celebrations."],
   [Armchair, "Tables & Chairs", "టేబుళ్లు & కుర్చీలు", "Seating and table arrangements for your guests."],
   [CookingPot, "Cooking Vessels", "వంట పాత్రలు", "Equipment for large-scale event cooking."],
