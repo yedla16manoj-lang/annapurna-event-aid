@@ -6,10 +6,10 @@ export type EnquiryEmailData = {
   fullName: string;
   phone: string;
   eventType: string;
-  eventDate?: string;
-  guestCount?: number;
+  eventDate?: string | undefined;
+  guestCount?: number | undefined;
   services: string[];
-  message?: string;
+  message?: string | undefined;
   language: "en" | "te";
   createdAt: string;
 };
