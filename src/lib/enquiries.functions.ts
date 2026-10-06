@@ -58,9 +58,24 @@ export const submitEnquiry = createServerFn({ method: "POST" })
         language: data.language,
         source: "website",
       })
-      .select("id")
+      .select("id, created_at")
       .single();
 
     if (error || !row) throw new Error("We could not save your enquiry. Please call or WhatsApp us.");
-    return { success: true, id: row.id };
+
+    // Enquiry is safely stored; email failure must not fail the submission.
+    const { sendEnquiryNotification } = await import("./enquiry-email.server");
+    const email = await sendEnquiryNotification({
+      id: row.id,
+      fullName: data.fullName,
+      phone: data.phone,
+      eventType: data.eventType,
+      eventDate: data.eventDate || undefined,
+      guestCount: data.guestCount,
+      services: data.services,
+      message: data.message || undefined,
+      language: data.language,
+      createdAt: row.created_at,
+    });
+    return { success: true, id: row.id, emailSent: email.sent };
   });
