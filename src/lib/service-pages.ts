@@ -1,5 +1,5 @@
 // Shared SEO + content data for the individual service pages.
-export const SITE_URL = "https://annapurna-event-aid.lovable.app";
+export const SITE_URL = "https://annapurnatenthouseandcatering.lovable.app";
 export const BUSINESS = {
   name: "Annapurna Tent House and Caterings",
   phone: "7396627263",
