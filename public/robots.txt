@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://annapurna-event-aid.lovable.app/sitemap.xml
+Sitemap: https://annapurnatenthouseandcatering.lovable.app/sitemap.xml
