@@ -114,7 +114,7 @@ export function AnnapurnaSite() {
     <main>
       {/* HERO */}
       <section id="home" className="a-hero">
-        <div className="a-hero-bg"><img src={heroImage} alt="Red and blue Indian-style tent with sidewalls, blue plastic chairs, serving tables, cooking vessels and a drum set up for a local function" width={1600} height={1008} fetchPriority="high" /></div>
+        <div className="a-hero-bg"><img src={heroImage} alt="Single Indian-style shamiana tent in red and blue stripes with sidewalls, blue plastic chairs, serving tables and cooking vessels for a local function" width={1600} height={1008} fetchPriority="high" /></div>
         <div className="a-hero-shade" />
         <span className="a-float f1" aria-hidden="true"><CookingPot size={22} /></span>
         <span className="a-float f2" aria-hidden="true"><Armchair size={20} /></span>
@@ -169,7 +169,7 @@ export function AnnapurnaSite() {
         <div className="a-wrap">
           <Head eyebrow={L("Inventory", "మా సామగ్రి")} title={L("What We Provide", "మేము అందించేవి")} sub={L("Our tent and cooking equipment for functions in Anakapalle.", "అనకాపల్లిలో శుభకార్యాల కోసం మా టెంట్ & వంట సామగ్రి.")} />
           <div className="a-provide">
-            <figure className="a-photo a-provide-photo rv"><img src={heroImage} loading="lazy" width={1600} height={1008} alt="Red and blue tent with blue chairs and serving tables at a function" /></figure>
+            <figure className="a-photo a-provide-photo rv"><img src={heroImage} loading="lazy" width={1600} height={1008} alt="Red and blue striped function tent with blue chairs and serving tables" /></figure>
             <div className="a-inv">
               {inventory.map(([en, tel, k], i) => { const I = invIcons[k] ?? Tent; return <div key={k} className={`a-inv-item rv ${k}`} style={{ ["--i" as string]: i % 3 }}><I size={26} /><span>{L(en, tel)}</span></div>; })}
             </div>
