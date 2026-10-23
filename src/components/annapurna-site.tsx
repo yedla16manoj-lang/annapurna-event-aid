@@ -30,7 +30,7 @@ const anchors = ["home", "about", "services", "equipment", "catering", "contact"
 
 type Card = [LucideIcon, string, string, string, string];
 const services: Card[] = [
-  [Tent, "Indian-Style Tent Supply", "టెంట్ సరఫరా", "Red and blue traditional tent arrangements suitable for local functions.", "స్థానిక శుభకార్యాలకు సరిపడే ఎరుపు, నీలం రంగుల సాంప్రదాయ టెంట్ ఏర్పాట్లు."],
+  [Tent, "Indian-Style Tent Supply", "టెంట్ సరఫరా", "One traditional Indian-style tent with combined red-and-blue striped fabric, suitable for local functions.", "స్థానిక శుభకార్యాలకు ఒకే టెంట్‌లో ఎరుపు-నీలం చారలతో కూడిన భారతీయ శైలి టెంట్."],
   [PanelsLeftRight, "Tent Sidewalls", "టెంట్ సైడ్‌వాల్స్", "Sidewalls for added privacy and protection around the tent setup.", "టెంట్ చుట్టూ గోప్యత, రక్షణ కోసం సైడ్‌వాల్స్."],
   [Armchair, "Plastic Chairs", "ప్లాస్టిక్ కుర్చీలు", "Normal blue plastic chairs suitable for guests at functions.", "అతిథుల కోసం సాధారణ నీలం ప్లాస్టిక్ కుర్చీలు."],
   [TableProperties, "Serving Tables", "వడ్డింపు టేబుళ్లు", "Tables for arranging and serving food and other function requirements.", "భోజనం వడ్డించడానికి, ఇతర అవసరాలకు టేబుళ్లు."],
@@ -43,11 +43,11 @@ const services: Card[] = [
 ];
 
 const inventory: [string, string, string][] = [
-  ["Red tent", "ఎరుపు టెంట్", "tent-red"], ["Blue tent", "నీలం టెంట్", "tent-blue"], ["Sidewalls", "సైడ్‌వాల్స్", "walls"],
+  ["Indian-style red-and-blue striped tent", "ఎరుపు-నీలం చారల భారతీయ శైలి టెంట్", "tent-combined"], ["Sidewalls", "సైడ్‌వాల్స్", "walls"],
   ["Blue plastic chairs", "నీలం ప్లాస్టిక్ కుర్చీలు", "chairs"], ["Serving tables", "వడ్డింపు టేబుళ్లు", "tables"], ["Cooking vessels", "వంట పాత్రలు", "vessels"],
   ["Drums", "డ్రమ్ములు", "drums"], ["Gas stoves", "గ్యాస్ స్టౌలు", "stoves"], ["Cooking equipment", "వంట సామగ్రి", "cooking"],
 ];
-const invIcons: Record<string, LucideIcon> = { "tent-red": Tent, "tent-blue": Tent, walls: PanelsLeftRight, chairs: Armchair, tables: TableProperties, vessels: CookingPot, drums: Cylinder, stoves: Flame, cooking: Soup };
+const invIcons: Record<string, LucideIcon> = { "tent-combined": Tent, walls: PanelsLeftRight, chairs: Armchair, tables: TableProperties, vessels: CookingPot, drums: Cylinder, stoves: Flame, cooking: Soup };
 
 const occasions: [LucideIcon, string, string][] = [
   [Home, "Family Functions", "కుటుంబ శుభకార్యాలు"], [HeartHandshake, "Weddings", "పెళ్లిళ్లు"], [Cake, "Birthday Functions", "పుట్టినరోజు వేడుకలు"],
@@ -114,7 +114,7 @@ export function AnnapurnaSite() {
     <main>
       {/* HERO */}
       <section id="home" className="a-hero">
-        <div className="a-hero-bg"><img src={heroImage} alt="Single Indian-style shamiana tent in red and blue stripes with sidewalls, blue plastic chairs, serving tables and cooking vessels for a local function" width={1600} height={1008} fetchPriority="high" /></div>
+        <div className="a-hero-bg"><img src={heroImage} alt="One Indian-style shamiana tent with red-and-blue striped fabric combined on the same tent, with sidewalls, blue plastic chairs, serving tables and cooking vessels for a local function" width={1600} height={1008} fetchPriority="high" /></div>
         <div className="a-hero-shade" />
         <span className="a-float f1" aria-hidden="true"><CookingPot size={22} /></span>
         <span className="a-float f2" aria-hidden="true"><Armchair size={20} /></span>
@@ -169,7 +169,7 @@ export function AnnapurnaSite() {
         <div className="a-wrap">
           <Head eyebrow={L("Inventory", "మా సామగ్రి")} title={L("What We Provide", "మేము అందించేవి")} sub={L("Our tent and cooking equipment for functions in Anakapalle.", "అనకాపల్లిలో శుభకార్యాల కోసం మా టెంట్ & వంట సామగ్రి.")} />
           <div className="a-provide">
-            <figure className="a-photo a-provide-photo rv"><img src={heroImage} loading="lazy" width={1600} height={1008} alt="Red and blue striped function tent with blue chairs and serving tables" /></figure>
+            <figure className="a-photo a-provide-photo rv"><img src={heroImage} loading="lazy" width={1600} height={1008} alt="One Indian-style function tent with red-and-blue striped fabric combined on the same tent, with blue chairs and serving tables" /></figure>
             <div className="a-inv">
               {inventory.map(([en, tel, k], i) => { const I = invIcons[k] ?? Tent; return <div key={k} className={`a-inv-item rv ${k}`} style={{ ["--i" as string]: i % 3 }}><I size={26} /><span>{L(en, tel)}</span></div>; })}
             </div>
